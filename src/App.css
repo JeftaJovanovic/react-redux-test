@@ -1,0 +1,9 @@
+@import '~antd/dist/antd.css';
+
+.ant-layout {
+  height: 100vh;
+}
+
+.main-layout {
+  padding-top: 24px;
+}
