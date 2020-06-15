@@ -1,9 +1,5 @@
 import React from 'react';
 import { Form, Input, Button, Select, Space } from 'antd';
-import { useHistory } from 'react-router-dom';
-import { connect } from 'react-redux';
-
-import { registerUser } from '../actions';
 
 const { Option } = Select;
 const formItemLayout = {
@@ -27,25 +23,22 @@ const tailFormItemLayout = {
   },
 };
 
-const RegistrationForm = (props) => {
+const RegistrationForm = ({ onRegisterUser }) => {
   const [form] = Form.useForm();
-  const history = useHistory();
-
   const onFormSubmit = (values) => {
-    props.registerUser(values);
-    history.push('/info');
-    debugger;
+    onRegisterUser(values);
   };
 
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select
         style={{
-          width: 70,
+          width: 80,
         }}
       >
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
+        <Option value="381">+381</Option>
+        <Option value="382">+382</Option>
+        <Option value="383">+383</Option>
       </Select>
     </Form.Item>
   );
@@ -125,13 +118,5 @@ const RegistrationForm = (props) => {
     </div>
   );
 };
-const mapStateToProps = (state) => {
-  debugger;
-  return {
-    registrationForm: state.registrationForm,
-  };
-};
 
-export default connect(mapStateToProps, {
-  registerUser,
-})(RegistrationForm);
+export default RegistrationForm;
